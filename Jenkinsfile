@@ -1,10 +1,6 @@
 pipeline {
 
 	agent any
-    
-	environment {
-		PYTHON = 'C:\\Users\\admin\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe'
-	}
 
 	stages {
 		stage ('Checkout code') {
@@ -15,13 +11,13 @@ pipeline {
 
 		stage ('Check python version') {
 			steps {
-				bat "${env.PYTHON} --version"
+				bat python --version
 			}
 		}
 
 		stage ('Run extract.py') {
 			steps {
-				bat "${env.PYTHON} extract.py"
+				bat python extract.py
 			}
 		}
 	}
